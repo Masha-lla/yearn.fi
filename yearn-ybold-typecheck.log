@@ -1,0 +1,2 @@
+$ bun run --cwd apps/ybold tslint
+$ node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit

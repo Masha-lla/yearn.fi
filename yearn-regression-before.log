@@ -1,0 +1,45 @@
+$ vitest run components/WalletAccountMenu.test.tsx
+
+ RUN  v4.1.11 /private/tmp/yearn-1431/apps/ybold
+
+ ❯ components/WalletAccountMenu.test.tsx (7 tests | 1 failed) 499ms
+     × only exposes slippage settings and restores focus when navigating back 65ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  components/WalletAccountMenu.test.tsx > yBOLD wallet account > only exposes slippage settings and restores focus when navigating back
+AssertionError: expected <button type="button" …(4)>…(1)</button> to be null
+
+- Expected:
+null
+
++ Received:
+<button
+  aria-checked="true"
+  aria-label="Auto-stake deposits"
+  class="relative h-6 w-11 shrink-0 rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yearn bg-yearn"
+  role="switch"
+  type="button"
+>
+  <span
+    class="absolute top-1 left-1 size-4 rounded-full bg-white transition-transform translate-x-5"
+  />
+</button>
+
+ ❯ components/WalletAccountMenu.test.tsx:163:75
+    161|       expect(document.activeElement).toBe(screen.getByRole('button', {…
+    162|     )
+    163|     expect(screen.queryByRole('switch', { name: 'Auto-stake deposits' …
+       |                                                                           ^
+    164|     expect(screen.queryByText('Receive staked yBOLD by default')).toBe…
+    165|     fireEvent.click(screen.getByRole('button', { name: '1%' }))
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  17:35:55
+   Duration  1.65s (transform 118ms, setup 0ms, import 651ms, tests 499ms, environment 428ms)
+
+error: script "test" exited with code 1
