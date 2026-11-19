@@ -1,0 +1,65 @@
+$ vitest run src/components/pages/vaults/utils/charts.test.ts
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vitest.config.mts:10:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+Both esbuild and oxc options were set. oxc options will be used and esbuild options will be ignored. The following esbuild options were set: `{ jsx: 'automatic' }`
+
+ RUN  v4.1.11 /private/tmp/yearn-898/apps/yearn
+
+ ❯ src/components/pages/vaults/utils/charts.test.ts (10 tests | 2 failed) 6ms
+     × drops buckets before the deployment day and keeps its daily bucket 3ms
+     × starts each chart at its first available value instead of another series start 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/pages/vaults/utils/charts.test.ts > transformVaultChartData > drops buckets before the deployment day and keeps its daily bucket
+AssertionError: expected [ 50, 100, 120 ] to deeply equal [ 100, 120 ]
+
+- Expected
++ Received
+
+  [
++   50,
+    100,
+    120,
+  ]
+
+ ❯ src/components/pages/vaults/utils/charts.test.ts:32:55
+     30|       tvlPoint(day - 86_400, 50), tvlPoint(day, 100), tvlPoint(day + 8…
+     31|     ]), day + 3_600)
+     32|     expect(result.tvlData?.map((point) => point.TVL)).toEqual([100, 12…
+       |                                                       ^
+     33|   })
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/components/pages/vaults/utils/charts.test.ts > transformVaultChartData > starts each chart at its first available value instead of another series start
+AssertionError: expected [ null, null, 100 ] to deeply equal [ 100 ]
+
+- Expected
++ Received
+
+  [
++   null,
++   null,
+    100,
+  ]
+
+ ❯ src/components/pages/vaults/utils/charts.test.ts:41:55
+     39|       pps: [tvlPoint(day, 1), tvlPoint(day + 2 * 86_400, 1.1)]
+     40|     })
+     41|     expect(result.tvlData?.map((point) => point.TVL)).toEqual([100])
+       |                                                       ^
+     42|     expect(result.ppsData?.map((point) => point.PPS)).toEqual([1, null…
+     43|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 8 passed (10)
+   Start at  18:13:32
+   Duration  124ms (transform 22ms, setup 0ms, import 39ms, tests 6ms, environment 0ms)
+
+error: script "test" exited with code 1

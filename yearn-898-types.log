@@ -1,0 +1,3 @@
+$ bun run tslint:yearn
+$ bun run --cwd apps/yearn tslint
+$ node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit

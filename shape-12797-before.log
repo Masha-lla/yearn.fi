@@ -1,0 +1,61 @@
+
+ RUN  v4.1.12 /private/tmp/shapeshift-12797
+
+stderr | src/components/Modals/Send/Form.test.tsx > send QR asset selection > preserves the selected token after scanning a plain address (initial asset: undefined)
+`ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ❯ |web| src/components/Modals/Send/Form.test.tsx (2 tests | 2 failed) 2057ms
+     × preserves the selected token after scanning a plain address (initial asset: undefined) 1033ms
+     × preserves the selected token after scanning a plain address (initial asset: eip155:1/slip44:60) 1023ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |web| src/components/Modals/Send/Form.test.tsx > send QR asset selection > preserves the selected token after scanning a plain address (initial asset: undefined)
+ FAIL  |web| src/components/Modals/Send/Form.test.tsx > send QR asset selection > preserves the selected token after scanning a plain address (initial asset: eip155:1/slip44:60)
+AssertionError: expected 'eip155:1/slip44:60' to be 'eip155:1/erc20:0xa0b86991c6218b36c1d1…' // Object.is equality
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<form[39m
+        [33mstyle[39m=[32m"height: 100%;"[39m
+      [36m>[39m
+        [36m<output>[39m
+          [0meip155:1/slip44:60[0m
+        [36m</output>[39m
+        [36m<button[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mScan[0m
+        [36m</button>[39m
+      [36m</form>[39m
+    [36m</div>[39m
+  [36m</body>[39m
+[36m</html>[39m
+
+Expected: "eip155:1/erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+Received: "eip155:1/slip44:60"
+
+ ❯ src/components/Modals/Send/Form.test.tsx:66:72
+     64|     fireEvent.click(screen.getByRole('button', { name: 'Scan' }))
+     65|     fireEvent.click(await screen.findByRole('button', { name: 'Read QR…
+     66|     await waitFor(() => expect(screen.getByRole('status').textContent)…
+       |                                                                        ^
+     67|   })
+     68| })
+ ❯ runWithExpensiveErrorDiagnosticsDisabled ../shapeshift-12799/node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback ../shapeshift-12799/node_modules/@testing-library/dom/dist/wait-for.js:127:77
+ ❯ Timeout.checkRealTimersCallback ../shapeshift-12799/node_modules/@testing-library/dom/dist/wait-for.js:121:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  18:10:36
+   Duration  5.74s (transform 1.44s, setup 38ms, import 3.44s, tests 2.06s, environment 144ms)
+

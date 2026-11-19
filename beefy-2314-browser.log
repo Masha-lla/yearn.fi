@@ -1,0 +1,33 @@
+before Position performance
+AT DEPOSIT
+1
+$20,000
+NOW
+1.1
+$44,000
+YIELD
+0.1
+(10%)
+$4,000
+PNL
++$24,000
+120%
+after Position performance
+USD
+BTC
+
+BTC entry values use historical daily prices. Charts remain in USD and deposit tokens. A dash means BTC prices are unavailable.
+
+AT DEPOSIT
+1
+1 BTC
+NOW
+1.1
+1.1 BTC
+YIELD
+0.1
+(10%)
+0.1 BTC
+PNL
++0.1 BTC
+10%

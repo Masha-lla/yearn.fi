@@ -1,0 +1,24 @@
+$ biome check --write .
+biome.jsonc:2:13 deserialize  DEPRECATED  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  i The use of the recommended field has been deprecated, and will removed in the next major version of Biome. Use preset instead.
+  
+     1 │ {
+   > 2 │   "linter": {
+       │             ^
+   > 3 │     "enabled": true,
+   > 4 │     "rules": {
+        ...
+  > 43 │     }
+  > 44 │   },
+       │   ^
+    45 │   "css": {
+    46 │     "parser": {
+  
+  i Migrate the configuration with the proper command
+  
+  $ biome migrate
+  
+
+Checked 1154 files in 563ms. Fixed 3 files.
+Found 1 info.

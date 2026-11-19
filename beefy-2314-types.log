@@ -1,0 +1,4 @@
+
+> beefy-v2@0.1.0 tsc
+> tsc --project tsconfig.app.json
+

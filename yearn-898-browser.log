@@ -1,0 +1,2 @@
+before 7 { date: '11/13/26', TVL: null }
+after 2 { date: '11/18/26', TVL: 109.51749788184856 }
