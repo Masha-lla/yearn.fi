@@ -1,0 +1,77 @@
+
+ RUN  v4.1.12 /private/tmp/shapeshift-12799
+
+stderr | src/components/Modals/Send/applyQrScanAsset.test.ts > applyQrScanAsset > clears an incompatible account when the scanned chain has no enabled account
+`ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+ ❯ |web| src/components/Modals/Send/applyQrScanAsset.test.ts (8 tests | 4 failed) 17ms
+     × clears an incompatible account when the scanned chain has no enabled account 10ms
+     × turns off Max before applying a payment amount and its fiat value 2ms
+     × turns off Max when clearing an absent or zero scanned amount (undefined) 1ms
+     × turns off Max when clearing an absent or zero scanned amount (0) 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |web| src/components/Modals/Send/applyQrScanAsset.test.ts > applyQrScanAsset > clears an incompatible account when the scanned chain has no enabled account
+AssertionError: expected 'eip155:1:0x11111111111111111111111111…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ eip155:1:0x1111111111111111111111111111111111111111
+
+ ❯ src/components/Modals/Send/applyQrScanAsset.test.ts:43:57
+     41|     act(() => applyQrScanAsset(methods, { qrAssetId: btcAssetId, amoun…
+     42|     expect(methods.getValues(SendFormFields.AssetId)).toBe(btcAssetId)
+     43|     expect(methods.getValues(SendFormFields.AccountId)).toBe('')
+       |                                                         ^
+     44|   })
+     45|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |web| src/components/Modals/Send/applyQrScanAsset.test.ts > applyQrScanAsset > turns off Max before applying a payment amount and its fiat value
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/Modals/Send/applyQrScanAsset.test.ts:71:55
+     69|     const setValue = vi.spyOn(methods, 'setValue')
+     70|     act(() => applyQrScanAsset(methods, { qrAssetId: ethAssetId, amoun…
+     71|     expect(methods.getValues(SendFormFields.SendMax)).toBe(false)
+       |                                                       ^
+     72|     expect(methods.getValues(SendFormFields.AmountCryptoPrecision)).to…
+     73|     expect(methods.getValues(SendFormFields.FiatAmount)).toBe('2')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |web| src/components/Modals/Send/applyQrScanAsset.test.ts > applyQrScanAsset > turns off Max when clearing an absent or zero scanned amount (undefined)
+ FAIL  |web| src/components/Modals/Send/applyQrScanAsset.test.ts > applyQrScanAsset > turns off Max when clearing an absent or zero scanned amount (0)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/Modals/Send/applyQrScanAsset.test.ts:82:55
+     80|     const methods = renderForm({ assetId: usdcAssetId })
+     81|     act(() => applyQrScanAsset(methods, { qrAssetId: ethAssetId, amoun…
+     82|     expect(methods.getValues(SendFormFields.SendMax)).toBe(false)
+       |                                                       ^
+     83|     expect(methods.getValues(SendFormFields.AmountCryptoPrecision)).to…
+     84|     expect(methods.getValues(SendFormFields.FiatAmount)).toBe('')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 4 passed (8)
+   Start at  09:36:35
+   Duration  1.46s (transform 324ms, setup 65ms, import 1.05s, tests 17ms, environment 255ms)
+

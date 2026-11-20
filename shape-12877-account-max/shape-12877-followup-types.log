@@ -1,0 +1,6 @@
+ WARN  Unsupported engine: wanted: {"node":">=22.23.4 <23"} (current: {"node":"v22.22.3","pnpm":"10.30.3"})
+
+> @shapeshiftoss/web@1.27.0 type-check /private/tmp/shapeshift-12799
+> NODE_OPTIONS=--max-old-space-size=8192 pnpm exec tsc --noEmit
+
+ WARN  Unsupported engine: wanted: {"node":">=22.23.4 <23"} (current: {"node":"v22.22.3","pnpm":"10.30.3"})
